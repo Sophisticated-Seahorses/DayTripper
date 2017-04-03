@@ -16,6 +16,7 @@ class IndividualTrip extends React.Component {
       //   trip id?  user id? title of trip?
       //   map url
       clicked: false,
+      // showMap: false,
       // events state variable is temporary, using just until we have proper trip info being passed through.
       trip: {}
     };
@@ -34,13 +35,16 @@ class IndividualTrip extends React.Component {
   showMemoriesClick(photos) {
     this.setState({
       photos: photos,
-      clicked: !this.state.clicked});
+      clicked: !this.state.clicked,
+      // showMap: !this.state.showMap
+    });
+      
   };
 
 
   componentDidMount() {
     ajax({
-      url: `/getTrips/${this.props.match.params.tripId}`,
+      url: `/getTrips/${this.props.match.params.tripId}`, 
       method: 'GET',
       success: (trip) => {
         console.log(trip);
@@ -79,6 +83,7 @@ class IndividualTrip extends React.Component {
                 // removeEvent={this.props.removeEvent}
                 // updateEvent={this.props.updateEvent}
                 tripId={this.state.trip._id}
+                showMap={this.state.clicked}
                 events={this.state.trip.events}
                 showMemories={this.showMemoriesClick}
                 updatePhotos={this.updatePhotos} 
@@ -86,7 +91,7 @@ class IndividualTrip extends React.Component {
                 ''}
               </div>
               <div className="col-md-6">
-              { this.state.clicked ? <MuiThemeProvider><Memories photos={this.state.photos}/></MuiThemeProvider> : <TripMapView /*mapUrl=*//> }
+              { this.state.clicked ? <MuiThemeProvider><Memories photos={this.state.photos}/></MuiThemeProvider> : <TripMapView mapUrl={this.state.trip.map_url}/>} 
             </div>
           
 

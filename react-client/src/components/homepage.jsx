@@ -108,6 +108,9 @@ class Homepage extends React.Component {
   clearEvents() {
     this.setState({events: []});
   }
+  // passUrl(url) {
+  //   this.props.setUrl(url);
+  // }
 
   mapRender() {
     
@@ -169,7 +172,7 @@ class Homepage extends React.Component {
               />
               </div>
               <div>
-              <SaveTripButton accessToken={this.state.accessToken} events={this.state.events} clearEvents={this.clearEvents}/>
+              <SaveTripButton accessToken={this.state.accessToken} events={this.state.events} clearEvents={this.clearEvents} mapUrl={this.state.mapUrl}/>
             </div>
 
           </div>

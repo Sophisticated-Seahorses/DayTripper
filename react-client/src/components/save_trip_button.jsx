@@ -39,7 +39,8 @@ class SaveTripButton extends React.Component {
       name: this.state.name,
       photos: [],
       participants: [],
-      image_url: this.props.events[0].image_url
+      image_url: this.props.events[0].image_url,
+      map_url: this.props.mapUrl
     };
     console.log(this.state.accessToken, 'imm passing down the access token in the savetripbutton file in the handlesubmit func');
     $.ajax({

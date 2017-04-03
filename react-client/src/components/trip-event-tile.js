@@ -9,6 +9,7 @@ class TripEventTile extends React.Component {
     super(props);
     this.state = {
       picModalOpen: false,
+      showMap: false
     };
     //bind methods here
     this.handleOpen = this.handleOpen.bind(this);
@@ -83,7 +84,10 @@ class TripEventTile extends React.Component {
 
           <div className="col-md-2  col-xs-12">
             <button onClick={this.handleOpen} className="btn-primary btn-lg" style={{width: 154.5}}>Add Memory</button>
-            <button onClick={this.props.showMemories} className="btn-info btn-lg">Show Memories</button>
+            <button onClick={() => {
+                this.props.showMemories();
+                this.setState({showMap: !this.state.showMap});
+              }} className="btn-info btn-lg">{this.state.showMap && this.props.showMap ? 'Show Map' : 'Show Memories'}</button>
           </div>
           <MuiThemeProvider>
             <PictureModal

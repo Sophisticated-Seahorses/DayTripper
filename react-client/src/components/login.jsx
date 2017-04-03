@@ -1,7 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
 import GoogleLogin from 'react-google-login';
-import GoogleCredentials from '../../../server/middleware/authConfig';
 
 class Login extends React.Component {
   constructor(props) {
@@ -41,7 +40,7 @@ class Login extends React.Component {
         <div className='center'>
           <GoogleLogin
           className='btn btn-lg btn-primary'
-          clientId={GoogleCredentials.googleClientId}
+          clientId='898316907945-kk9tkv33a46v17qej06tfce8hmv88g44.apps.googleusercontent.com'
           buttonText="Login With Google"
           onSuccess={this.responseGoogle.bind(this)} />
         </div>

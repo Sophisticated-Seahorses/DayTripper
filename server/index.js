@@ -125,6 +125,13 @@ app.get('/getTrips/:tripId', passport.authenticate('google-token'), function(req
   });
 });
 
+app.post('/updateTrip', passport.authenticate('google-token'), function(req, res) {
+
+  console.log(req.body);
+  // db.updateTrip()
+  res.send('hello');
+});
+
 app.delete('/removeTrip', passport.authenticate('google-token'), function(req, res) {
   db.removeTrip(req.body.ObjectId, function(err, trip) {
     if (err) {
